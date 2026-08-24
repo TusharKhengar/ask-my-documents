@@ -31,11 +31,9 @@ def load_vector_store(persist_directory="vector_store"):
         embedding_function=get_embedding_model(),
     )
 
-    count = vectorstore._collection.count()
-    if count == 0:
+    if vectorstore._collection.count() == 0:
         raise ValueError("Vector store is empty. Re-run ingestion_pipeline.py.")
 
-    print(f"Loaded vector store: {count} chunks.")
     return vectorstore
 
 
@@ -48,11 +46,6 @@ def retrieve(vectorstore, question, k=4):
     """
 
     results = vectorstore.similarity_search_with_score(question, k=k)
-
-    print(f"\nRetrieved {len(results)} chunks:")
-    for i, (doc, score) in enumerate(results, 1):
-        preview = doc.page_content[:80].replace("\n", " ")
-        print(f"  [{i}] distance={score:.4f} | {preview}...")
 
     return [doc for doc, _ in results]
 

@@ -42,9 +42,6 @@ def split_documents(documents, chunk_size=800, chunk_overlap=20):
 
     chunks = text_splitter.split_documents(documents)
 
-    print(f"Split {len(documents)} document(s) into {len(chunks)} chunks.")
-    print(f"Largest chunk: {max(len(c.page_content) for c in chunks)} characters.")
-
     # if chunks:
     #     for i, chunk in enumerate(chunks[:5]):  # Print first 5 chunks as an example
     #         print(f"Split Document {i}")
@@ -81,7 +78,6 @@ def create_vector_store(chunks, persist_directory="vector_store"):
     # Chroma appends to whatever is already on disk, and it will crash if those
     # old vectors have a different length. Start clean.
     if os.path.exists(persist_directory):
-        print(f"Removing existing vector store at '{persist_directory}'...")
         shutil.rmtree(persist_directory)
 
     vectorstore = Chroma.from_documents(
