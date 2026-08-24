@@ -21,4 +21,4 @@ python-dotenv==1.2.3
 
 # Streamlit Cloud's system sqlite3 is older than Chroma requires.
 # Linux-only: this wheel does not exist for Windows and isn't needed there.
-pysqlite3-binary==0.5.4; sys_platform == "linux"
+pysqlite3-binary==0.5.4.post2; sys_platform == "linux"
