@@ -1,0 +1,14 @@
+# Secrets - never commit these
+.env
+.streamlit/secrets.toml
+
+# Virtual environment
+ragvenv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# NOTE: vector_store/ is intentionally COMMITTED. Rebuilding it on the host
+# would take ~37 minutes of CPU embedding, so the prebuilt index ships with
+# the repo and the deployed app just opens it.
