@@ -4,7 +4,7 @@ A Retrieval-Augmented Generation system that answers questions about a document
 collection it was never trained on, cites the passages it used, and says
 **"I don't know"** when the answer isn't in the documents.
 
-**[▶ Live demo](#)** · built with LangChain, ChromaDB, FastEmbed and Gemini
+**[▶ Live demo](#)** = https://ask-my-document-rag.streamlit.app/ · built with LangChain, ChromaDB, FastEmbed and Gemini
 
 ---
 
